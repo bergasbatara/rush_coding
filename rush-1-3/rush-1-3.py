@@ -8,16 +8,14 @@ def rush(x, y):
     for row in range(y):
         line = ""
         for col in range(x):
-            if row == 0 and col == 0:
-                line += "/"
-            elif row == 0 and col == x - 1:
-                line += "\\"
-            elif row == y - 1 and col == 0:
-                line += "\\"
-            elif row == y - 1 and col == x - 1:
-                line += "/"
+            if row == 0 and (col == 0 or col == x - 1):
+                line += "A"
+            elif row == y - 1 and (col == 0 or col == x - 1):
+                line += "C"
             elif row == 0 or row == y - 1 or col == 0 or col == x - 1:
-                line += "*"
+                line += "B"
             else:
                 line += " "
         print(line)
+
+rush(5,3)
